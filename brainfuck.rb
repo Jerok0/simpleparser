@@ -13,7 +13,7 @@ class Brainfuck
 	end
 
 	def newprogram(code, input)
-		@code = code.gsub(/[^><+\-.,]/, "")
+		@code = code.gsub(/[^><+\-.,\[\]]/, "")
 		@input = input
 		@cp = 0
 		@ip = 0
@@ -83,6 +83,3 @@ class Brainfuck
 
 	private :getmatch, :increment, :decrement, :move
 end
-
-my = Brainfuck.new
-puts my.showcode
