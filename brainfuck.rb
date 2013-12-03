@@ -6,8 +6,8 @@
 #use Brainfuck#newprogram to create a new program
 # => It expects 2 arguments, the code and an input stream. Both should be strings
 #########################################################################################
-class Brainfuck
 
+class Brainfuck
   def initialize
     @cp = 0
     @ip = 0
@@ -61,7 +61,6 @@ class Brainfuck
         @ip += 1
       when '['
         getmatch(']', '[') if @ram[@rm] == 0
-
       when ']'
         getmatch('[', ']') if @ram[@rm]!= 0
       end
@@ -100,6 +99,6 @@ class Brainfuck
   def set_input input
     @input = input
   end
-
+s
   private :getmatch, :increment, :decrement, :move
 end
