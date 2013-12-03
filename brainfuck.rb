@@ -9,11 +9,16 @@
 class Brainfuck
 
   def initialize
+    @cp = 0
+    @ip = 0
+    @rm = 0
+    @out = ""
     @ram = Array.new()
+    @input = ""
   end
 
   def newprogram(code, input)
-    @code = code.gsub(/[^><+\-.,\[\]]/, "")
+    @code = code.gsub(/[^><\+\-\.,\[\]]/, "")
     @input = input
     @cp = 0
     @ip = 0
@@ -81,6 +86,20 @@ class Brainfuck
     @ram[@rm] = 255 if @ram[@rm] < 0
   end
 
-  private :getmatch, :increment, :decrement, :move
+  def from_file file
+    @code = File.new(file, "r").read.gsub(/[^><\+\-\.,\[\]]/, "") if File.exist?(file)
+    if !@code
+      puts "Error reading from file"
+      return
+    end
+    @ip = @cp = @rm = 0
+    @ram = []
+    @out = ""
+  end
 
+  def set_input input
+    @input = input
+  end
+
+  private :getmatch, :increment, :decrement, :move
 end

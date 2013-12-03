@@ -10,5 +10,10 @@ class Tester < Test::Unit::TestCase
     assert_equal(mybrain.parse, "cde")
     mybrain.newprogram("++++++[->,.<]asdffsdfasdfsdfasdfasd", "abcdef")
     assert_equal(mybrain.parse, "abcdef")
+    mybrain.newprogram("++++++++++[->,+++.<]", "abcdefghij")
+    assert_equal(mybrain.parse, "defghijklm")
+    mybrain.from_file("~/my/mybrain.b")
+    mybrain.set_input("abcdefghij")
+    assert_equal(mybrain.parse, "defghijklm")
   end
 end
