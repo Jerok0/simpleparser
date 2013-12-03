@@ -4,7 +4,7 @@
 #Usage:
 #use Brainfuck.new to inilitalize
 #use Brainfuck#newprogram to create a new program
-# => It expects 2 arguments, the code and an input stream. Both should be stringd
+# => It expects 2 arguments, the code and an input stream. Both should be strings
 #########################################################################################
 class Brainfuck
 
